@@ -1,0 +1,32 @@
+<template>
+    <div class="slds-card slds-var-p-around_small">
+        <template lwc:if={properties.data}>
+            <div class="slds-grid slds-wrap">
+                <template
+                    for:each={properties.data.records}
+                    for:item="property"
+                >
+                    <c-property-tile
+                        property={property}
+                        key={property.Id}
+                        onselected={handlePropertySelected}
+                        class="slds-col slds-var-m-around_xx-small"
+                    ></c-property-tile>
+                </template>
+            </div>
+            <c-paginator
+                page-number={pageNumber}
+                page-size={pageSize}
+                total-item-count={properties.data.totalItemCount}
+                onprevious={handlePreviousPage}
+                onnext={handleNextPage}
+            ></c-paginator>
+        </template>
+        <template lwc:if={properties.error}>
+            <c-error-panel
+                friendly-message="Error retrieving data"
+                errors={properties.error}
+            ></c-error-panel>
+        </template>
+    </div>
+</template>

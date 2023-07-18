@@ -1,0 +1,26 @@
+.tile {
+    position: relative;
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.lower-third {
+    position: absolute;
+    /* @sldsValidatorIgnore */
+    bottom: 0;
+    /* @sldsValidatorIgnore */
+    left: 0;
+    /* @sldsValidatorIgnore */
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.truncate {
+    /* @sldsValidatorIgnore */
+    white-space: nowrap;
+    overflow: hidden;
+    /* @sldsValidatorIgnore */
+    text-overflow: ellipsis;
+}

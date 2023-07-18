@@ -1,0 +1,55 @@
+{
+    "name": "dreamhouse-lwc",
+    "version": "1.0.0",
+    "description": "DreamHouse Sample App - Lightning Web Components",
+    "scripts": {
+        "lint": "eslint **/{lwc,aura}/**/*.js",
+        "test": "npm run test:unit",
+        "test:unit": "sfdx-lwc-jest --skipApiVersionCheck",
+        "test:unit:watch": "sfdx-lwc-jest --watch --skipApiVersionCheck",
+        "test:unit:debug": "sfdx-lwc-jest --debug --skipApiVersionCheck",
+        "test:unit:coverage": "sfdx-lwc-jest --coverage --skipApiVersionCheck",
+        "prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+        "prettier:verify": "prettier --check \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+        "postinstall": "husky install",
+        "precommit": "lint-staged"
+    },
+    "lint-staged": {
+        "**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}": [
+            "prettier --write"
+        ],
+        "**/{aura,lwc}/**/*.js": [
+            "eslint"
+        ],
+        "**/lwc/**": [
+            "sfdx-lwc-jest --skipApiVersionCheck -- --bail --findRelatedTests --passWithNoTests"
+        ]
+    },
+    "author": "salesforce.com",
+    "license": "CC0-1.0",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/trailheadapps/dreamhouse-lwc"
+    },
+    "devDependencies": {
+        "@lwc/eslint-plugin-lwc": "^1.6.3",
+        "@prettier/plugin-xml": "^2.2.0",
+        "@sa11y/jest": "^5.2.0",
+        "@salesforce/eslint-config-lwc": "^3.5.0",
+        "@salesforce/eslint-plugin-aura": "^2.1.0",
+        "@salesforce/eslint-plugin-lightning": "^1.0.0",
+        "@salesforce/sfdx-lwc-jest": "^1.4.1",
+        "eslint": "^8.44.0",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-jest": "^27.2.2",
+        "husky": "^8.0.3",
+        "lint-staged": "^13.2.3",
+        "prettier": "^2.8.8",
+        "prettier-plugin-apex": "^1.13.0"
+    },
+    "dependencies": {},
+    "volta": {
+        "node": "16.19.0",
+        "npm": "9.2.0"
+    }
+}
